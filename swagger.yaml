@@ -1,0 +1,177 @@
+servers:
+- {url: 'http://localhost/api/'}
+openapi: 3.0.0
+paths:
+  /venta/:
+    get:
+      summary: /venta getAll
+      operationId: /venta_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/venta]
+  /factura/registro:
+    post:
+      summary: /factura register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /factura_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/factura]
+  /pago/{key}:
+    get:
+      summary: /pago getByKey
+      operationId: /pago_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+    delete:
+      summary: /pago delete
+      operationId: /pago_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+    put:
+      summary: /pago edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /pago_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+  /factura/:
+    get:
+      summary: /factura getAll
+      operationId: /factura_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/factura]
+  /pago/registro:
+    post:
+      summary: /pago register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /pago_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/pago]
+  /factura/{key}:
+    get:
+      summary: /factura getByKey
+      operationId: /factura_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
+    delete:
+      summary: /factura delete
+      operationId: /factura_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
+    put:
+      summary: /factura edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /factura_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
+  /pago/:
+    get:
+      summary: /pago getAll
+      operationId: /pago_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/pago]
+  /venta/registro:
+    post:
+      summary: /venta register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/venta]
+  /venta/{key}:
+    get:
+      summary: /venta getByKey
+      operationId: /venta_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+    delete:
+      summary: /venta delete
+      operationId: /venta_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+    put:
+      summary: /venta edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
+tags:
+- {name: /pago, description: /pago_descripcion}
+- {name: /factura, description: /factura_descripcion}
+- {name: /venta, description: /venta_descripcion}

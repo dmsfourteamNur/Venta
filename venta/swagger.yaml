@@ -1,0 +1,177 @@
+servers:
+- {url: 'http://localhost/api/'}
+openapi: 3.0.0
+paths:
+  /marca/{key}:
+    get:
+      summary: /marca getByKey
+      operationId: /marca_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/marca]
+    delete:
+      summary: /marca delete
+      operationId: /marca_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/marca]
+    put:
+      summary: /marca edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /marca_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/marca]
+  /venta/:
+    get:
+      summary: /venta getAll
+      operationId: /venta_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/venta]
+  /marca/:
+    get:
+      summary: /marca getAll
+      operationId: /marca_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/marca]
+  /pago/{key}:
+    get:
+      summary: /pago getByKey
+      operationId: /pago_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+    delete:
+      summary: /pago delete
+      operationId: /pago_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+    put:
+      summary: /pago edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /pago_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/pago]
+  /pago/registro:
+    post:
+      summary: /pago register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /pago_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/pago]
+  /pago/:
+    get:
+      summary: /pago getAll
+      operationId: /pago_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/pago]
+  /venta/registro:
+    post:
+      summary: /venta register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/venta]
+  /venta/{key}:
+    get:
+      summary: /venta getByKey
+      operationId: /venta_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+    delete:
+      summary: /venta delete
+      operationId: /venta_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+    put:
+      summary: /venta edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/venta]
+  /marca/registro:
+    post:
+      summary: /marca register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /marca_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/marca]
+info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
+tags:
+- {name: /pago, description: /pago_descripcion}
+- {name: /marca, description: /marca_descripcion}
+- {name: /venta, description: /venta_descripcion}
