@@ -1,7 +1,7 @@
 package UseCases.Queries.Facturas.GetAll;
 
 import Repositories.IFacturaRepository;
-import fourteam.mediator.RequestHandler;
+import Fourteam.mediator.RequestHandler;
 import java.util.List;
 
 import Model.Facturas.Factura;
@@ -16,7 +16,7 @@ public class GetAllFacturaHandler
   }
 
   @Override
-  public List<Factura> handle(GetAllFacturaQuery request) {
+  public List<Factura> handle(GetAllFacturaQuery request) throws Exception {
     return _facturaRepository.GetAll();
   }
 }

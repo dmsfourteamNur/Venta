@@ -7,17 +7,16 @@ import UseCases.Command.Ventas.Editar.EditarVentaCommand;
 import UseCases.Command.Ventas.Eliminar.EliminarVentaCommand;
 import UseCases.Queries.Ventas.GetAll.GetAllVentaQuery;
 import UseCases.Queries.Ventas.GetByKey.GetVentaByKeyQuery;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.annotation.DeleteMapping;
-import fourteam.http.annotation.GetMapping;
-import fourteam.http.annotation.PathVariable;
-import fourteam.http.annotation.PostMapping;
-import fourteam.http.annotation.PutMapping;
-import fourteam.http.annotation.RequestBody;
-import fourteam.http.annotation.RequestMapping;
-import fourteam.http.annotation.RestController;
-import fourteam.mediator.Mediator;
-import fourteam.mediator.Response;
+import Fourteam.http.annotation.DeleteMapping;
+import Fourteam.http.annotation.GetMapping;
+import Fourteam.http.annotation.PathVariable;
+import Fourteam.http.annotation.PostMapping;
+import Fourteam.http.annotation.PutMapping;
+import Fourteam.http.annotation.RequestBody;
+import Fourteam.http.annotation.RequestMapping;
+import Fourteam.http.annotation.RestController;
+import Fourteam.mediator.Mediator;
+import Fourteam.mediator.Response;
 import java.util.List;
 
 @RestController
@@ -31,37 +30,33 @@ public class VentaController {
   }
 
   @GetMapping("/")
-  public Response<List<Venta>> getAll() throws HttpException {
-    return _mediator.send(new GetAllVentaQuery());
+  public List<Venta> getAll() throws Exception {
+    return (List<Venta>) _mediator.send(new GetAllVentaQuery()).data;
   }
 
   @GetMapping("/{key}")
   public Response<VentaDto> getByKey(
-    @PathVariable GetVentaByKeyQuery request
-  ) throws HttpException {
+      @PathVariable GetVentaByKeyQuery request) throws Exception {
     return _mediator.send(request);
   }
 
   @PostMapping("/registro")
   public Response<Venta> register(
-    @RequestBody CrearVentaCommand venta
-  ) throws HttpException {
+      @RequestBody CrearVentaCommand venta) throws Exception {
     return _mediator.send(venta);
   }
 
   @PutMapping("/{key}")
   public Response<Venta> edit(
-    @RequestBody Venta venta,
-    @PathVariable EditarVentaCommand request
-  ) throws HttpException {
+      @RequestBody Venta venta,
+      @PathVariable EditarVentaCommand request) throws Exception {
     request.venta.descripcion = venta.descripcion;
     return _mediator.send(request);
   }
 
   @DeleteMapping("/{key}")
   public Response<Venta> delete(
-    @PathVariable EliminarVentaCommand request
-  ) throws HttpException {
+      @PathVariable EliminarVentaCommand request) throws Exception {
     return _mediator.send(request);
   }
 }

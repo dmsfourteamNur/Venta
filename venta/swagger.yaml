@@ -1,45 +1,7 @@
 servers:
-- {url: 'http://localhost/api/'}
+- {url: 'http://localhost:8081/api/'}
 openapi: 3.0.0
 paths:
-  /marca/{key}:
-    get:
-      summary: /marca getByKey
-      operationId: /marca_getByKey
-      responses:
-        '200': {description: Response 200}
-      parameters:
-      - schema: {type: string}
-        in: path
-        name: key
-        required: true
-      tags: [/marca]
-    delete:
-      summary: /marca delete
-      operationId: /marca_delete
-      responses:
-        '200': {description: Response 200}
-      parameters:
-      - schema: {type: string}
-        in: path
-        name: key
-        required: true
-      tags: [/marca]
-    put:
-      summary: /marca edit
-      requestBody:
-        content:
-          application/json:
-            schema: {type: object}
-      operationId: /marca_edit
-      responses:
-        '200': {description: Response 200}
-      parameters:
-      - schema: {type: string}
-        in: path
-        name: key
-        required: true
-      tags: [/marca]
   /venta/:
     get:
       summary: /venta getAll
@@ -47,13 +9,17 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/venta]
-  /marca/:
-    get:
-      summary: /marca getAll
-      operationId: /marca_getAll
+  /factura/registro:
+    post:
+      summary: /factura register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /factura_register
       responses:
         '200': {description: Response 200}
-      tags: [/marca]
+      tags: [/factura]
   /pago/{key}:
     get:
       summary: /pago getByKey
@@ -92,6 +58,13 @@ paths:
         name: key
         required: true
       tags: [/pago]
+  /factura/:
+    get:
+      summary: /factura getAll
+      operationId: /factura_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/factura]
   /pago/registro:
     post:
       summary: /pago register
@@ -103,6 +76,44 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/pago]
+  /factura/{key}:
+    get:
+      summary: /factura getByKey
+      operationId: /factura_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
+    delete:
+      summary: /factura delete
+      operationId: /factura_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
+    put:
+      summary: /factura edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /factura_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/factura]
   /pago/:
     get:
       summary: /pago getAll
@@ -110,17 +121,6 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/pago]
-  /venta/registro:
-    post:
-      summary: /venta register
-      requestBody:
-        content:
-          application/json:
-            schema: {type: object}
-      operationId: /venta_register
-      responses:
-        '200': {description: Response 200}
-      tags: [/venta]
   /venta/{key}:
     get:
       summary: /venta getByKey
@@ -159,19 +159,19 @@ paths:
         name: key
         required: true
       tags: [/venta]
-  /marca/registro:
+  /venta/registro:
     post:
-      summary: /marca register
+      summary: /venta register
       requestBody:
         content:
           application/json:
             schema: {type: object}
-      operationId: /marca_register
+      operationId: /venta_register
       responses:
         '200': {description: Response 200}
-      tags: [/marca]
+      tags: [/venta]
 info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
 tags:
 - {name: /pago, description: /pago_descripcion}
-- {name: /marca, description: /marca_descripcion}
+- {name: /factura, description: /factura_descripcion}
 - {name: /venta, description: /venta_descripcion}

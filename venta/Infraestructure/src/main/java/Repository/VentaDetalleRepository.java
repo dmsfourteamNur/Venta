@@ -7,7 +7,7 @@ import Model.Ventas.VentaDetalle;
 import Repositories.IPagoRepository;
 import Repositories.IVentaDetalleRepository;
 import Repositories.IVentaRepository;
-import fourteam.db.DbSet;
+import Fourteam.db.DbSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,16 +20,13 @@ public class VentaDetalleRepository implements IVentaDetalleRepository {
   }
 
   @Override
-  public VentaDetalle FindByKey(UUID key) {
+  public VentaDetalle FindByKey(UUID key) throws Exception {
     return _ventasDetalle.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(VentaDetalle obj) {
+  public void Create(VentaDetalle obj) throws Exception {
     _ventasDetalle.Add(obj);
   }
-
-
-
 
 }

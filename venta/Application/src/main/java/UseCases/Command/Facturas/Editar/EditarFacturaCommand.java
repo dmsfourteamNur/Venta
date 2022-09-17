@@ -1,7 +1,7 @@
 package UseCases.Command.Facturas.Editar;
 
 import Dto.FacturaDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 import java.util.UUID;
 
 public class EditarFacturaCommand implements Request<FacturaDto> {

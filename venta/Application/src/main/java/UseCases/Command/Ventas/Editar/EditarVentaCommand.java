@@ -1,7 +1,7 @@
 package UseCases.Command.Ventas.Editar;
 
 import Dto.VentaDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 import java.util.UUID;
 
 public class EditarVentaCommand implements Request<VentaDto> {

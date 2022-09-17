@@ -3,9 +3,9 @@ package UseCases.Queries.Facturas.GetByKey;
 import Dto.FacturaDto;
 import Model.Facturas.Factura;
 import Repositories.IFacturaRepository;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.HttpStatus;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.http.HttpStatus;
+import Fourteam.mediator.RequestHandler;
 
 public class GetFacturaByKeyHandler
   implements RequestHandler<GetFacturaByKeyQuery, FacturaDto> {
@@ -17,7 +17,7 @@ public class GetFacturaByKeyHandler
   }
 
   @Override
-  public FacturaDto handle(GetFacturaByKeyQuery request) throws HttpException {
+  public FacturaDto handle(GetFacturaByKeyQuery request) throws Exception {
     Factura marca = _marcaRepository.FindByKey(request.key);
     if (marca == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Factura no encontrada");

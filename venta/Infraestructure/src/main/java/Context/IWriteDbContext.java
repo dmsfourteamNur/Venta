@@ -4,12 +4,13 @@ import Model.Facturas.Factura;
 import Model.Pagos.Pago;
 import Model.Ventas.Venta;
 import Model.Ventas.VentaDetalle;
-import fourteam.db.DbContext;
-import fourteam.db.DbSet;
+import Fourteam.db.DbContext;
+import Fourteam.db.DbSet;
+import Fourteam.db.Exception.DataBaseException;
 
 public abstract class IWriteDbContext extends DbContext {
 
-  public IWriteDbContext(Class dbContextClass) {
+  public IWriteDbContext(Class dbContextClass) throws DataBaseException {
     super(dbContextClass);
   }
 

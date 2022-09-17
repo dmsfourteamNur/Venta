@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.UUID;
 
 public interface IVentaRepository extends IRepository<Venta, UUID> {
-  public List<Venta> GetAll();
+  public List<Venta> GetAll() throws Exception;
 
-  public Venta Delete(Venta venta);
+  public Venta Delete(Venta venta) throws Exception;
 
-  public Venta Update(Venta venta);
+  public Venta Update(Venta venta) throws Exception;
 }

@@ -5,7 +5,7 @@ import Model.Pagos.Pago;
 import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IVentaRepository;
-import fourteam.db.DbSet;
+import Fourteam.db.DbSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,28 +18,28 @@ public class VentaRepository implements IVentaRepository {
   }
 
   @Override
-  public Venta FindByKey(UUID key) {
+  public Venta FindByKey(UUID key) throws Exception {
     return _ventas.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(Venta obj) {
+  public void Create(Venta obj) throws Exception {
     _ventas.Add(obj);
   }
 
   @Override
-  public List<Venta> GetAll() {
+  public List<Venta> GetAll() throws Exception {
     return _ventas.All();
   }
 
   @Override
-  public Venta Delete(Venta obj) {
+  public Venta Delete(Venta obj) throws Exception {
     _ventas.Delete((it -> it.key.equals(obj.key)));
     return obj;
   }
 
   @Override
-  public Venta Update(Venta obj) {
+  public Venta Update(Venta obj) throws Exception {
     _ventas.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }

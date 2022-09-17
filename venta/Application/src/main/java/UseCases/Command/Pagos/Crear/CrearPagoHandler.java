@@ -4,8 +4,8 @@ import Factories.IPagoFactory;
 import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Repositories.IUnitOfWork;
-import fourteam.http.Exception.HttpException;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.mediator.RequestHandler;
 
 public class CrearPagoHandler
   implements RequestHandler<CrearPagoCommand, Pago> {
@@ -25,7 +25,7 @@ public class CrearPagoHandler
   }
 
   @Override
-  public Pago handle(CrearPagoCommand request) throws HttpException {
+  public Pago handle(CrearPagoCommand request) throws Exception {
     Pago pago = _pagoFactory.Create(request.descripcion);
     // pago.eventCreado();
     _pagoRepository.Create(pago);

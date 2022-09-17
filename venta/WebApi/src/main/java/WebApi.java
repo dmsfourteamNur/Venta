@@ -1,7 +1,8 @@
 import Controllers.PagoController;
 import Controllers.FacturaController;
 import Controllers.VentaController;
-import fourteam.http.Rest;
+import Fourteam.config.Config;
+import Fourteam.http.Rest;
 
 public class WebApi {
 
@@ -9,7 +10,7 @@ public class WebApi {
     Rest.addController(PagoController.class);
     Rest.addController(FacturaController.class);
     Rest.addController(VentaController.class);
-    Rest.start(8080);
+    Rest.start(Integer.parseInt(Config.getProperty("http.port")));
     Rest.createSwagger();
   }
 }

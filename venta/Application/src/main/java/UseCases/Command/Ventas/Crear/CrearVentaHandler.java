@@ -4,8 +4,8 @@ import Factories.IVentaFactory;
 import Model.Ventas.Venta;
 import Repositories.IUnitOfWork;
 import Repositories.IVentaRepository;
-import fourteam.http.Exception.HttpException;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.mediator.RequestHandler;
 
 public class CrearVentaHandler
   implements RequestHandler<CrearVentaCommand, Venta> {
@@ -25,8 +25,8 @@ public class CrearVentaHandler
   }
 
   @Override
-  public Venta handle(CrearVentaCommand request) throws HttpException {
-    Venta venta = _ventaFactory.Create(request.descripcion , request.keyPago, request.estadoVenta);
+  public Venta handle(CrearVentaCommand request) throws Exception {
+    Venta venta = _ventaFactory.Create(request.data.descripcion , request.data.keyPago, request.data.estadoVenta);
     venta.eventCreado();
     _ventaRepository.Create(venta);
     _unitOfWork.commit();

@@ -3,7 +3,7 @@ package Repository;
 import Context.IWriteDbContext;
 import Model.Facturas.Factura;
 import Repositories.IFacturaRepository;
-import fourteam.db.DbSet;
+import Fourteam.db.DbSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,28 +16,28 @@ public class FacturaRepository implements IFacturaRepository {
   }
 
   @Override
-  public Factura FindByKey(UUID key) {
+  public Factura FindByKey(UUID key) throws Exception {
     return _facturas.Single(obj -> obj.key.equals(key));
   }
 
   @Override
-  public void Create(Factura obj) {
+  public void Create(Factura obj) throws Exception {
     _facturas.Add(obj);
   }
 
   @Override
-  public List<Factura> GetAll() {
+  public List<Factura> GetAll() throws Exception {
     return _facturas.All();
   }
 
   @Override
-  public Factura Delete(Factura obj) {
+  public Factura Delete(Factura obj) throws Exception {
     _facturas.Delete((it -> it.key.equals(obj.key)));
     return obj;
   }
 
   @Override
-  public Factura Update(Factura obj) {
+  public Factura Update(Factura obj) throws Exception {
     _facturas.Update(obj, (it -> it.key.equals(obj.key)));
     return obj;
   }

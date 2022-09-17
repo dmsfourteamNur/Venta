@@ -4,9 +4,9 @@ import Factories.IPagoFactory;
 import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Repositories.IUnitOfWork;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.HttpStatus;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.http.HttpStatus;
+import Fourteam.mediator.RequestHandler;
 
 public class EliminarPagoHandler
   implements RequestHandler<EliminarPagoCommand, Pago> {
@@ -26,7 +26,7 @@ public class EliminarPagoHandler
   }
 
   @Override
-  public Pago handle(EliminarPagoCommand request) throws HttpException {
+  public Pago handle(EliminarPagoCommand request) throws Exception {
     Pago pago = _pagoRepository.FindByKey(request.pago.key);
     if (pago == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Pago no encontrado");

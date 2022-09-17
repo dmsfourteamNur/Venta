@@ -7,9 +7,9 @@ import Model.Pagos.Pago;
 import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IVentaRepository;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.HttpStatus;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.http.HttpStatus;
+import Fourteam.mediator.RequestHandler;
 
 public class GetVentaByKeyHandler
   implements RequestHandler<GetVentaByKeyQuery, VentaDto> {
@@ -22,7 +22,7 @@ public class GetVentaByKeyHandler
 
   @Override
   public VentaDto handle(GetVentaByKeyQuery request)
-    throws HttpException {
+    throws Exception {
     Venta venta = _ventaRepository.FindByKey(request.key);
     if (venta == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Venta no encontrada");

@@ -1,7 +1,7 @@
 package UseCases.Queries.Facturas.GetByKey;
 
 import Dto.PagoDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 import java.util.UUID;
 
 public class GetFacturaByKeyQuery implements Request<PagoDto> {

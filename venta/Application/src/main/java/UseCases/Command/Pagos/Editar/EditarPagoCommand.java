@@ -1,7 +1,7 @@
 package UseCases.Command.Pagos.Editar;
 
 import Dto.PagoDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 import java.util.UUID;
 
 public class EditarPagoCommand implements Request<PagoDto> {

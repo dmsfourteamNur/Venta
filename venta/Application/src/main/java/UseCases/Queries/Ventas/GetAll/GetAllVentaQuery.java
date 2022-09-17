@@ -1,7 +1,7 @@
 package UseCases.Queries.Ventas.GetAll;
 
 import Dto.VentaDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 
 public class GetAllVentaQuery implements Request<VentaDto> {
 

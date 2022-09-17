@@ -7,9 +7,9 @@ import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Repositories.IFacturaRepository;
 import Repositories.IUnitOfWork;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.HttpStatus;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.http.HttpStatus;
+import Fourteam.mediator.RequestHandler;
 
 public class EliminarFacturaHandler
   implements RequestHandler<EliminarFacturaCommand, Factura> {
@@ -29,7 +29,7 @@ public class EliminarFacturaHandler
   }
 
   @Override
-  public Factura handle(EliminarFacturaCommand request) throws HttpException {
+  public Factura handle(EliminarFacturaCommand request) throws Exception {
     Factura factura = _facturaRepository.FindByKey(request.factura.key);
     if (factura == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Factura no encontrada");

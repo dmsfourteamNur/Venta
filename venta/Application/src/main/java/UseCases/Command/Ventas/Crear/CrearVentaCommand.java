@@ -3,19 +3,14 @@ package UseCases.Command.Ventas.Crear;
 import java.util.UUID;
 
 import Dto.VentaDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 
 public class CrearVentaCommand implements Request<VentaDto> {
 
-  public String descripcion;
-  public UUID keyPago;
-  public Integer estadoVenta;
-
+  public VentaDto data;
 
   public CrearVentaCommand(VentaDto venta) {
-    this.descripcion = venta.descripcion;
-    this.keyPago = venta.keyPago;
-    this.estadoVenta = venta.estadoVenta;
+    this.data = venta;
   }
 
 }

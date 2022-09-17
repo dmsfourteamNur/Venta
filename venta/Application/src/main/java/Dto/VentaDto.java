@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import Model.Ventas.Venta;
+
 public class VentaDto {
 
   public UUID key;
@@ -14,10 +16,16 @@ public class VentaDto {
   public VentaDto() {
   }
 
-  public VentaDto(String descripcion, UUID keyPago, Integer estadoVenta) {
+  public VentaDto(String key, String descripcion, UUID keyPago, Integer estadoVenta) {
     this.descripcion = descripcion;
     this.keyPago = keyPago;
     this.estadoVenta = estadoVenta;
+  }
+
+  public VentaDto(Venta venta) {
+    this.descripcion = venta.descripcion;
+    this.keyPago = venta.keyPago;
+    this.estadoVenta = venta.estadoVenta;
   }
 
   public UUID getKey() {

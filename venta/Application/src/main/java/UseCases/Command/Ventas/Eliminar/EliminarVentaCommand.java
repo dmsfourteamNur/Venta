@@ -1,7 +1,7 @@
 package UseCases.Command.Ventas.Eliminar;
 
 import Dto.VentaDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 import java.util.UUID;
 
 public class EliminarVentaCommand implements Request<VentaDto> {

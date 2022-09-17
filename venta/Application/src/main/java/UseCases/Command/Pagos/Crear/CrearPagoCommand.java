@@ -1,7 +1,7 @@
 package UseCases.Command.Pagos.Crear;
 
 import Dto.PagoDto;
-import fourteam.mediator.Request;
+import Fourteam.mediator.Request;
 
 public class CrearPagoCommand implements Request<PagoDto> {
 

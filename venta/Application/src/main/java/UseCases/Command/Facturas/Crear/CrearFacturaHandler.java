@@ -4,8 +4,7 @@ import Factories.IFacturaFactory;
 import Model.Facturas.Factura;
 import Repositories.IFacturaRepository;
 import Repositories.IUnitOfWork;
-import fourteam.http.Exception.HttpException;
-import fourteam.mediator.RequestHandler;
+import Fourteam.mediator.RequestHandler;
 
 public class CrearFacturaHandler
     implements RequestHandler<CrearFacturaCommand, Factura> {
@@ -24,7 +23,7 @@ public class CrearFacturaHandler
   }
 
   @Override
-  public Factura handle(CrearFacturaCommand request) throws HttpException {
+  public Factura handle(CrearFacturaCommand request) throws Exception {
     Factura factura = _facturaFactory.Create(request.keyVenta, request.nit, request.razonSocial, request.monto,
         request.detalle);
     _facturaRepository.Create(factura);

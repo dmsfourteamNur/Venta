@@ -1,7 +1,7 @@
 package UseCases.Queries.Pagos.GetAll;
 
 import Repositories.IPagoRepository;
-import fourteam.mediator.RequestHandler;
+import Fourteam.mediator.RequestHandler;
 import java.util.List;
 
 import Model.Pagos.Pago;
@@ -16,7 +16,7 @@ public class GetAllPagoHandler
   }
 
   @Override
-  public List<Pago> handle(GetAllPagoQuery request) {
+  public List<Pago> handle(GetAllPagoQuery request) throws Exception {
     return _pagoRepository.GetAll();
   }
 }

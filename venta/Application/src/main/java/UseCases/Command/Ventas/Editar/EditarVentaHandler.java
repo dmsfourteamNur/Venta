@@ -7,9 +7,9 @@ import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IUnitOfWork;
 import Repositories.IVentaRepository;
-import fourteam.http.Exception.HttpException;
-import fourteam.http.HttpStatus;
-import fourteam.mediator.RequestHandler;
+import Fourteam.http.Exception.HttpException;
+import Fourteam.http.HttpStatus;
+import Fourteam.mediator.RequestHandler;
 
 public class EditarVentaHandler
   implements RequestHandler<EditarVentaCommand, Venta> {
@@ -29,7 +29,7 @@ public class EditarVentaHandler
   }
 
   @Override
-  public Venta handle(EditarVentaCommand request) throws HttpException {
+  public Venta handle(EditarVentaCommand request) throws Exception {
     Venta venta = _ventaRepository.FindByKey(request.venta.key);
     if (venta == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "venta no encontrada");

@@ -19,8 +19,8 @@ import UseCases.Queries.Pagos.GetAll.GetAllPagoHandler;
 import UseCases.Queries.Pagos.GetByKey.GetPagoByKeyHandler;
 import UseCases.Queries.Ventas.GetAll.GetAllVentaHandler;
 import UseCases.Queries.Ventas.GetByKey.GetVentaByKeyHandler;
-import fourteam.extensions.IServiceCollection;
-import fourteam.mediator.IMediator;
+import Fourteam.extensions.IServiceCollection;
+import Fourteam.mediator.IMediator;
 
 public class Application {
 
