@@ -34,9 +34,8 @@ public class EditarVentaHandler
     if (venta == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "venta no encontrada");
     }
-    venta.descripcion = request.venta.descripcion;
-    venta.keyPago = request.venta.keyPago;
-    venta.estadoVenta = request.venta.estadoVenta;
+    venta.nombre = request.venta.nombre;
+    // venta.estadoVenta = request.venta.estadoVenta;
 
     _ventaRepository.Update(venta);
 

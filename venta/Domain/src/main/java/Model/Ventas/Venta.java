@@ -8,8 +8,10 @@ import Event.VentaCreada;
 
 public class Venta extends AggregateRoot<UUID> {
 
-  public String descripcion;
-  public UUID keyPago;
+  public String nombre;
+  public String apellido;
+  public String dni;
+  public UUID keyVuelo;
   public Integer estadoVenta;
   public LocalDateTime fechaOn;
   public Integer estado;
@@ -17,31 +19,19 @@ public class Venta extends AggregateRoot<UUID> {
   public Venta() {
   }
 
-  public Venta(String descripcion, UUID keyPago, Integer estadoVenta) {
+
+
+  public Venta(String nombre, String apellido, String dni, UUID keyVuelo, Integer estadoVenta) {
     key = UUID.randomUUID();
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.dni = dni;
+    this.keyVuelo = keyVuelo;
+    this.estadoVenta = estadoVenta;
     this.fechaOn = LocalDateTime.now();
     this.estado = 1;
-    this.descripcion = descripcion;
-    this.keyPago = keyPago;
-    this.estadoVenta = estadoVenta;
-
   }
 
-  public String getDescripcion() {
-    return this.descripcion;
-  }
-
-  public void setDescripcion(String descripcion) {
-    this.descripcion = descripcion;
-  }
-
-  public UUID getKeyPago() {
-    return this.keyPago;
-  }
-
-  public void setKeyPago(UUID keyPago) {
-    this.keyPago = keyPago;
-  }
 
   public Integer getEstadoVenta() {
     return this.estadoVenta;
@@ -68,7 +58,7 @@ public class Venta extends AggregateRoot<UUID> {
   }
 
   public void eventCreado() {
-    addDomainEvent(new VentaCreada(key, descripcion));
+    addDomainEvent(new VentaCreada(key));
   }
 
 }

@@ -27,11 +27,8 @@ public class GetVentaByKeyHandler
     if (venta == null) {
       throw new HttpException(HttpStatus.BAD_REQUEST, "Venta no encontrada");
     }
-    VentaDto ventaDto = new VentaDto();
-    ventaDto.key = venta.key;
-    ventaDto.descripcion = venta.descripcion;
-    ventaDto.keyPago = venta.keyPago;
-    ventaDto.estadoVenta = venta.estadoVenta;
+    VentaDto ventaDto = new VentaDto(venta);
+
 
     return ventaDto;
   }

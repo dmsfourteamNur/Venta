@@ -13,6 +13,7 @@ import UseCases.Command.Pagos.Eliminar.EliminarPagoHandler;
 import UseCases.Command.Ventas.Crear.CrearVentaHandler;
 import UseCases.Command.Ventas.Editar.EditarVentaHandler;
 import UseCases.Command.Ventas.Eliminar.EliminarVentaHandler;
+import UseCases.DomainEventHandler.Aeronave.PublishIntegrationEventWhenVentaCreadoHandler;
 import UseCases.Queries.Facturas.GetAll.GetAllFacturaHandler;
 import UseCases.Queries.Facturas.GetByKey.GetFacturaByKeyHandler;
 import UseCases.Queries.Pagos.GetAll.GetAllPagoHandler;
@@ -44,6 +45,7 @@ public class Application {
     IMediator.registerHandler(CrearVentaHandler.class);
     IMediator.registerHandler(EliminarVentaHandler.class);
     IMediator.registerHandler(EditarVentaHandler.class);
+    IMediator.registerHandler(PublishIntegrationEventWhenVentaCreadoHandler.class);
 
     IServiceCollection.AddTransient(
       IPagoFactory.class,

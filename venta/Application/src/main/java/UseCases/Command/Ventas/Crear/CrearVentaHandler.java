@@ -8,17 +8,16 @@ import Fourteam.http.Exception.HttpException;
 import Fourteam.mediator.RequestHandler;
 
 public class CrearVentaHandler
-  implements RequestHandler<CrearVentaCommand, Venta> {
+    implements RequestHandler<CrearVentaCommand, Venta> {
 
   private IVentaFactory _ventaFactory;
   private IVentaRepository _ventaRepository;
   private IUnitOfWork _unitOfWork;
 
   public CrearVentaHandler(
-    IVentaFactory ventaFactory,
-    IVentaRepository ventaRepository,
-    IUnitOfWork _unitOfWork
-  ) {
+      IVentaFactory ventaFactory,
+      IVentaRepository ventaRepository,
+      IUnitOfWork _unitOfWork) {
     this._ventaFactory = ventaFactory;
     this._ventaRepository = ventaRepository;
     this._unitOfWork = _unitOfWork;
@@ -26,7 +25,8 @@ public class CrearVentaHandler
 
   @Override
   public Venta handle(CrearVentaCommand request) throws Exception {
-    Venta venta = _ventaFactory.Create(request.data.descripcion , request.data.keyPago, request.data.estadoVenta);
+    Venta venta = _ventaFactory.Create(request.data.nombre, request.data.apellido, request.data.dni,
+        request.data.keyVuelo, 1);
     venta.eventCreado();
     _ventaRepository.Create(venta);
     _unitOfWork.commit();

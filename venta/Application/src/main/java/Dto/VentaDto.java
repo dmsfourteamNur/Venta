@@ -9,23 +9,30 @@ import Model.Ventas.Venta;
 public class VentaDto {
 
   public UUID key;
-  public String descripcion;
-  public UUID keyPago;
-  public Integer estadoVenta;
+  public String nombre;
+  public String apellido;
+  public String dni;
+  public UUID keyVuelo;
 
   public VentaDto() {
   }
 
-  public VentaDto(String key, String descripcion, UUID keyPago, Integer estadoVenta) {
-    this.descripcion = descripcion;
-    this.keyPago = keyPago;
-    this.estadoVenta = estadoVenta;
+
+  public VentaDto(UUID key, String nombre, String apellido, String dni, UUID keyVuelo) {
+    this.key = key;
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.dni = dni;
+    this.keyVuelo = keyVuelo;
   }
 
+
   public VentaDto(Venta venta) {
-    this.descripcion = venta.descripcion;
-    this.keyPago = venta.keyPago;
-    this.estadoVenta = venta.estadoVenta;
+    this.key = venta.key;
+    this.nombre = venta.nombre;
+    this.apellido = venta.apellido;
+    this.dni = venta.dni;
+    this.keyVuelo = venta.keyVuelo;
   }
 
   public UUID getKey() {
@@ -36,28 +43,6 @@ public class VentaDto {
     this.key = key;
   }
 
-  public String getDescripcion() {
-    return this.descripcion;
-  }
 
-  public void setDescripcion(String descripcion) {
-    this.descripcion = descripcion;
-  }
-
-  public UUID getKeyPago() {
-    return this.keyPago;
-  }
-
-  public void setKeyPago(UUID keyPago) {
-    this.keyPago = keyPago;
-  }
-
-  public Integer getEstadoVenta() {
-    return this.estadoVenta;
-  }
-
-  public void setEstadoVenta(Integer estadoVenta) {
-    this.estadoVenta = estadoVenta;
-  }
 
 }

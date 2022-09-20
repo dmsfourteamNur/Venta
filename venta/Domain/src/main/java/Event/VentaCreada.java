@@ -7,16 +7,14 @@ import java.util.UUID;
 public class VentaCreada extends DomainEvent {
 
   public UUID keyVenta;
-  public String descripcion;
 
   public VentaCreada() {
     super();
   }
 
-  public VentaCreada(UUID keyVenta, String descripcion) {
+  public VentaCreada(UUID keyVenta) {
     super(LocalDateTime.now());
     this.keyVenta = keyVenta;
-    this.descripcion = descripcion;
   }
 
   public UUID getKeyAeronave() {
@@ -27,11 +25,5 @@ public class VentaCreada extends DomainEvent {
     this.keyVenta = keyVenta;
   }
 
-  public String getMatricula() {
-    return this.descripcion;
-  }
 
-  public void setMatricula(String descripcion) {
-    this.descripcion = descripcion;
-  }
 }

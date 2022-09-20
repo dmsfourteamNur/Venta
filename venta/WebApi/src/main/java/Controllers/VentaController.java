@@ -50,7 +50,7 @@ public class VentaController {
   public Response<Venta> edit(
       @RequestBody Venta venta,
       @PathVariable EditarVentaCommand request) throws Exception {
-    request.venta.descripcion = venta.descripcion;
+    // request.venta.descripcion = venta.descripcion;
     return _mediator.send(request);
   }
 
