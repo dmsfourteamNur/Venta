@@ -23,6 +23,12 @@ public class PublishIntegrationEventWhenVentaCreadoHandler
     VentaCreada eve = (VentaCreada) event.DomainEvent;
     IntegrationEvents.VentaCreado evento = new IntegrationEvents.VentaCreado();
     evento.Key = eve.Key;
+    evento.setNombre(eve.nombre);
+    evento.setApellido(eve.apellido);
+    evento.setDni(eve.dni);
+    evento.setKeyVuelo(eve.keyVuelo);
+
+
     this.publishEndpoint.Publish(evento);
   }
 }

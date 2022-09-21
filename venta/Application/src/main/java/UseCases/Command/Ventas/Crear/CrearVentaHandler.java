@@ -26,7 +26,7 @@ public class CrearVentaHandler
   @Override
   public Venta handle(CrearVentaCommand request) throws Exception {
     Venta venta = _ventaFactory.Create(request.data.nombre, request.data.apellido, request.data.dni,
-        request.data.keyVuelo, 1);
+        request.data.keyVuelo);
     venta.eventCreado();
     _ventaRepository.Create(venta);
     _unitOfWork.commit();

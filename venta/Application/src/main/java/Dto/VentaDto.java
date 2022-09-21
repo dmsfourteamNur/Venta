@@ -11,14 +11,14 @@ public class VentaDto {
   public UUID key;
   public String nombre;
   public String apellido;
-  public String dni;
+  public int dni;
   public UUID keyVuelo;
 
   public VentaDto() {
   }
 
 
-  public VentaDto(UUID key, String nombre, String apellido, String dni, UUID keyVuelo) {
+  public VentaDto(UUID key, String nombre, String apellido, int dni, UUID keyVuelo) {
     this.key = key;
     this.nombre = nombre;
     this.apellido = apellido;

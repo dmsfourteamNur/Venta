@@ -10,9 +10,9 @@ public class VentaFactory implements IVentaFactory {
   public VentaFactory() {}
 
   @Override
-  public Venta Create(String nombre, String apellido, String dni, UUID keyVuelo, Integer estadoVenta) {
+  public Venta Create(String nombre, String apellido, int dni, UUID keyVuelo) {
     // TODO Auto-generated method stub
-    return new Venta(nombre, apellido,dni,keyVuelo,estadoVenta);
+    return new Venta(nombre, apellido,dni,keyVuelo);
   }
 
   // @Override
