@@ -22,7 +22,7 @@ public class PublishIntegrationEventWhenVentaCreadoHandler
     ConfirmedDomainEvent event = (ConfirmedDomainEvent) notification;
     VentaCreada eve = (VentaCreada) event.DomainEvent;
     IntegrationEvents.VentaCreado evento = new IntegrationEvents.VentaCreado();
-    // evento.Key = eve.Key;
+    evento.Key = eve.Key;
     evento.setNombre(eve.nombre);
     evento.setApellido(eve.apellido);
     evento.setDni(eve.dni);
