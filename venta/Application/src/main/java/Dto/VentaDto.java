@@ -11,21 +11,32 @@ public class VentaDto {
   public UUID key;
   public String nombre;
   public String apellido;
-  public int dni;
+  public String dni;
   public UUID keyVuelo;
+  public UUID keyTarifa;
+  public double monto;
 
   public VentaDto() {
   }
 
-
-  public VentaDto(UUID key, String nombre, String apellido, int dni, UUID keyVuelo) {
+  public VentaDto(UUID key, String nombre, String apellido, String dni, UUID keyVuelo, UUID keyTarifa) {
     this.key = key;
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;
     this.keyVuelo = keyVuelo;
+    this.keyTarifa = keyTarifa;
   }
 
+  public VentaDto(UUID key, String nombre, String apellido, String dni, UUID keyVuelo, UUID keyTarifa, double monto) {
+    this.key = key;
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.dni = dni;
+    this.keyVuelo = keyVuelo;
+    this.keyTarifa = keyTarifa;
+    this.monto = monto;
+  }
 
   public VentaDto(Venta venta) {
     this.key = venta.key;
@@ -33,6 +44,8 @@ public class VentaDto {
     this.apellido = venta.apellido;
     this.dni = venta.dni;
     this.keyVuelo = venta.keyVuelo;
+    this.keyTarifa = venta.keyTarifa;
+    this.monto = venta.monto;
   }
 
   public UUID getKey() {
@@ -42,7 +55,5 @@ public class VentaDto {
   public void setKey(UUID key) {
     this.key = key;
   }
-
-
 
 }

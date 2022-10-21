@@ -1,9 +1,13 @@
 import Factories.PagoFactory;
+import Factories.ReciboFactory;
 import Factories.IPagoFactory;
+import Factories.IReciboFactory;
 import Factories.IFacturaFactory;
 import Factories.IVentaFactory;
+import Factories.IVueloFactory;
 import Factories.FacturaFactory;
 import Factories.VentaFactory;
+import Factories.VueloFactory;
 import UseCases.Command.Facturas.Crear.CrearFacturaHandler;
 import UseCases.Command.Facturas.Editar.EditarFacturaHandler;
 import UseCases.Command.Facturas.Eliminar.EliminarFacturaHandler;
@@ -13,6 +17,7 @@ import UseCases.Command.Pagos.Eliminar.EliminarPagoHandler;
 import UseCases.Command.Ventas.Crear.CrearVentaHandler;
 import UseCases.Command.Ventas.Editar.EditarVentaHandler;
 import UseCases.Command.Ventas.Eliminar.EliminarVentaHandler;
+import UseCases.Command.Vuelo.AddTarifa.AddTarifaVueloHanlder;
 import UseCases.DomainEventHandler.Aeronave.PublishIntegrationEventWhenVentaCreadoHandler;
 import UseCases.Queries.Facturas.GetAll.GetAllFacturaHandler;
 import UseCases.Queries.Facturas.GetByKey.GetFacturaByKeyHandler;
@@ -39,7 +44,7 @@ public class Application {
     IMediator.registerHandler(CrearFacturaHandler.class);
     IMediator.registerHandler(EliminarFacturaHandler.class);
     IMediator.registerHandler(EditarFacturaHandler.class);
-    //VENTA
+    // VENTA
     IMediator.registerHandler(GetAllVentaHandler.class);
     IMediator.registerHandler(GetVentaByKeyHandler.class);
     IMediator.registerHandler(CrearVentaHandler.class);
@@ -47,12 +52,14 @@ public class Application {
     IMediator.registerHandler(EditarVentaHandler.class);
     IMediator.registerHandler(PublishIntegrationEventWhenVentaCreadoHandler.class);
 
-    IServiceCollection.AddTransient(
-      IPagoFactory.class,
-      PagoFactory.class
-    );
+    // VUELO
+    IMediator.registerHandler(AddTarifaVueloHanlder.class);
+
+    IServiceCollection.AddTransient(IPagoFactory.class, PagoFactory.class);
+    IServiceCollection.AddTransient(IReciboFactory.class, ReciboFactory.class);
     IServiceCollection.AddTransient(IFacturaFactory.class, FacturaFactory.class);
     IServiceCollection.AddTransient(IVentaFactory.class, VentaFactory.class);
+    IServiceCollection.AddTransient(IVueloFactory.class, VueloFactory.class);
 
     Domain.addDomain();
   }

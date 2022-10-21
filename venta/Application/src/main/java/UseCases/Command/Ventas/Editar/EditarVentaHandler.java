@@ -2,7 +2,7 @@ package UseCases.Command.Ventas.Editar;
 
 import Factories.IPagoFactory;
 import Factories.IVentaFactory;
-import Model.Pagos.Pago;
+import Model.Ventas.Pago;
 import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IUnitOfWork;

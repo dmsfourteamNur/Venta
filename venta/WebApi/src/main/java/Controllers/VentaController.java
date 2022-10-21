@@ -18,6 +18,7 @@ import Fourteam.http.annotation.RestController;
 import Fourteam.mediator.Mediator;
 import Fourteam.mediator.Response;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/venta")
@@ -41,9 +42,9 @@ public class VentaController {
   }
 
   @PostMapping("/registro")
-  public Response<Venta> register(
+  public UUID register(
       @RequestBody CrearVentaCommand venta) throws Exception {
-    return _mediator.send(venta);
+    return (UUID) _mediator.send(venta).data;
   }
 
   @PutMapping("/{key}")

@@ -18,16 +18,14 @@ public class PublishIntegrationEventWhenVentaCreadoHandler
   }
 
   @Override
-  public void handle(Notification notification) {
-    ConfirmedDomainEvent event = (ConfirmedDomainEvent) notification;
+  public void handle(ConfirmedDomainEvent<VentaCreada> event) {
     VentaCreada eve = (VentaCreada) event.DomainEvent;
     IntegrationEvents.VentaCreado evento = new IntegrationEvents.VentaCreado();
-    evento.Key = eve.Key;
+    evento.Key = eve.keyVenta;
     evento.setNombre(eve.nombre);
     evento.setApellido(eve.apellido);
     evento.setDni(eve.dni);
     evento.setKeyVuelo(eve.keyVuelo);
-
 
     this.publishEndpoint.Publish(evento);
   }

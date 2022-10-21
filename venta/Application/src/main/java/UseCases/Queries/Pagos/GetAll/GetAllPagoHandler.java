@@ -2,9 +2,9 @@ package UseCases.Queries.Pagos.GetAll;
 
 import Repositories.IPagoRepository;
 import Fourteam.mediator.RequestHandler;
-import java.util.List;
+import Model.Ventas.Pago;
 
-import Model.Pagos.Pago;
+import java.util.List;
 
 public class GetAllPagoHandler
   implements RequestHandler<GetAllPagoQuery, List<Pago>> {

@@ -2,11 +2,11 @@ package UseCases.Queries.Pagos.GetByKey;
 
 import Dto.PagoDto;
 import Dto.AsientoDto;
-import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Fourteam.http.Exception.HttpException;
 import Fourteam.http.HttpStatus;
 import Fourteam.mediator.RequestHandler;
+import Model.Ventas.Pago;
 
 public class GetPagoByKeyHandler
   implements RequestHandler<GetPagoByKeyQuery, PagoDto> {

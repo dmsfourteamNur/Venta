@@ -4,7 +4,7 @@ import core.IRepository;
 import java.util.List;
 import java.util.UUID;
 
-import Model.Pagos.Pago;
+import Model.Ventas.Pago;
 
 public interface IPagoRepository extends IRepository<Pago, UUID> {
   public List<Pago> GetAll() throws Exception;

@@ -1,7 +1,7 @@
 package Repository;
 
 import Context.IWriteDbContext;
-import Model.Pagos.Pago;
+import Model.Ventas.Pago;
 import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IVentaRepository;

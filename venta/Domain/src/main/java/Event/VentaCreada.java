@@ -10,15 +10,16 @@ public class VentaCreada extends DomainEvent {
   public UUID keyVuelo;
   public String nombre;
   public String apellido;
-  public int dni;
+  public String dni;
 
   public VentaCreada() {
     super();
   }
 
-  public VentaCreada(String nombre, String apellido, int dni, UUID keyVuelo) {
+  public VentaCreada(String nombre, String apellido, String dni, UUID keyVuelo, UUID keyVenta) {
     super(LocalDateTime.now());
     this.keyVuelo = keyVuelo;
+    this.keyVenta = keyVenta;
     this.dni = dni;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -56,12 +57,11 @@ public class VentaCreada extends DomainEvent {
     this.apellido = apellido;
   }
 
-  public int getDni() {
-    return this.dni;
+  public String getDni() {
+    return dni;
   }
 
-  public void setDni(int dni) {
+  public void setDni(String dni) {
     this.dni = dni;
   }
-
 }

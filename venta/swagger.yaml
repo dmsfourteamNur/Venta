@@ -1,5 +1,5 @@
 servers:
-- {url: 'http://localhost:8081/api/'}
+- {url: 'http://localhost:8080/api/'}
 openapi: 3.0.0
 paths:
   /venta/:
@@ -9,6 +9,22 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/venta]
+  /vuelo/AddTarifa/{key}:
+    put:
+      summary: /vuelo addAsiento
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /vuelo_addAsiento
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/vuelo]
   /factura/registro:
     post:
       summary: /factura register
@@ -121,17 +137,6 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/pago]
-  /venta/registro:
-    post:
-      summary: /venta register
-      requestBody:
-        content:
-          application/json:
-            schema: {type: object}
-      operationId: /venta_register
-      responses:
-        '200': {description: Response 200}
-      tags: [/venta]
   /venta/{key}:
     get:
       summary: /venta getByKey
@@ -170,8 +175,20 @@ paths:
         name: key
         required: true
       tags: [/venta]
+  /venta/registro:
+    post:
+      summary: /venta register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/venta]
 info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
 tags:
 - {name: /pago, description: /pago_descripcion}
+- {name: /vuelo, description: /vuelo_descripcion}
 - {name: /factura, description: /factura_descripcion}
 - {name: /venta, description: /venta_descripcion}

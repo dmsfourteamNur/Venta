@@ -9,12 +9,6 @@ import Repositories.IVueloRepository;
 
 public class VueloCreadoConsumer extends IConsumer<IntegrationEvents.VueloCreado> {
 
-  // public VueloCreadoConsumer(IMediator mediator) {
-  // System.out.println("Entro al constructor del consumer");
-  // }
-
-  public static String QueueName = "vuelo-creado";
-
   private IVueloRepository _ivueloRepository;
   private IVueloFactory _ivuelorioFactory;
   private IUnitOfWork _unitOfWork;
@@ -28,15 +22,19 @@ public class VueloCreadoConsumer extends IConsumer<IntegrationEvents.VueloCreado
 
   @Override
   public void Consume(IntegrationEvents.VueloCreado objeto) {
-    // Vuelo vuelo = _ivuelorioFactory.Create(
-    //     );
+
+    Vuelo vuelo = _ivuelorioFactory.Create(
+        objeto.getKey(),
+        objeto.getOrigen(),
+        objeto.getDestino(),
+        objeto.getFechaArribe(),
+        objeto.getFechaSalida());
 
     for (var item : objeto.listaAsientos) {
-      // vuelo.AgregarAsientos(item.getKey(), item.getNumero(), item.getDisponibilidad());
+      vuelo.AgregarAsientos(item.getKey(), item.getNumero(), item.getDisponibilidad(), item.getPrecio());
     }
-
     try {
-      // _ivueloRepository.Create(vuelo);
+      _ivueloRepository.Create(vuelo);
       _unitOfWork.commit();
     } catch (Exception e) {
       e.printStackTrace();

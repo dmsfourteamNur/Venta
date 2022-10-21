@@ -7,10 +7,11 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 80:80
+      - 27017:27017
     volumes:
       - ./mongoDB/:/data/db
   server:
-    image: rickypazd/aeronave-java
+    image: rickypazd/venta-java
     build: ./venta
     network_mode: "service:database"
   web:

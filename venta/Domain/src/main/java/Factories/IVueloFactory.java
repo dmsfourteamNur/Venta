@@ -1,9 +1,15 @@
 package Factories;
 
+import java.util.Date;
 import java.util.UUID;
 
 import Model.Vuelo.Vuelo;
 
 public interface IVueloFactory {
-  public Vuelo Create(UUID key, Integer cantidad, Double precio);
+  Vuelo Create(
+      UUID key,
+      String origen,
+      String destino,
+      Date fechaSalida,
+      Date fechaArribe);
 }

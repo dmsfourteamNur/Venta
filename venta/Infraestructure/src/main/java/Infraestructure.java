@@ -9,17 +9,15 @@ public class Infraestructure {
 
   public static void AddInfraestructure() {
     IServiceCollection.AddMediator();
-    IServiceCollection.AddScoped(
-        IWriteDbContext.class,
-        Context.MongoDB.WriteDbContext.class);
+    IServiceCollection.AddScoped(IWriteDbContext.class, Context.MongoDB.WriteDbContext.class);
     IServiceCollection.AddScoped(IUnitOfWork.class, UnitOfWork.class);
-    IServiceCollection.AddScoped(
-        IPagoRepository.class,
-        PagoRepository.class);
+    IServiceCollection.AddScoped(IPagoRepository.class, PagoRepository.class);
 
     IServiceCollection.AddScoped(IFacturaRepository.class, FacturaRepository.class);
+    IServiceCollection.AddScoped(IReciboRepository.class, ReciboRepository.class);
     IServiceCollection.AddScoped(IVentaRepository.class, VentaRepository.class);
     IServiceCollection.AddScoped(IVentaDetalleRepository.class, VentaDetalleRepository.class);
+    IServiceCollection.AddScoped(IVueloRepository.class, VueloRepository.class);
 
     Application.AddApplication();
     AddRabbitMq();

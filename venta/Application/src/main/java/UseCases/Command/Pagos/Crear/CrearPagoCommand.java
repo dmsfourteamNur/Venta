@@ -5,10 +5,10 @@ import Fourteam.mediator.Request;
 
 public class CrearPagoCommand implements Request<PagoDto> {
 
-  public String descripcion;
+  public PagoDto data;
 
-  public CrearPagoCommand(PagoDto ero) {
-    this.descripcion = ero.descripcion;
+  public CrearPagoCommand(PagoDto data) {
+    this.data = data;
   }
 
 }

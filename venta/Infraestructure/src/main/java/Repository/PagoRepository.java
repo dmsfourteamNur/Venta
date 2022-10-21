@@ -1,9 +1,10 @@
 package Repository;
 
 import Context.IWriteDbContext;
-import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Fourteam.db.DbSet;
+import Model.Ventas.Pago;
+
 import java.util.List;
 import java.util.UUID;
 

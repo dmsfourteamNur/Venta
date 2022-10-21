@@ -1,7 +1,6 @@
 package Controllers;
 
 import Dto.PagoDto;
-import Model.Pagos.Pago;
 import UseCases.Command.Pagos.Crear.CrearPagoCommand;
 import UseCases.Command.Pagos.Editar.EditarPagoCommand;
 import UseCases.Command.Pagos.Eliminar.EliminarPagoCommand;
@@ -17,7 +16,10 @@ import Fourteam.http.annotation.RequestMapping;
 import Fourteam.http.annotation.RestController;
 import Fourteam.mediator.Mediator;
 import Fourteam.mediator.Response;
+import Model.Ventas.Pago;
+
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/pago")
@@ -36,31 +38,27 @@ public class PagoController {
 
   @GetMapping("/{key}")
   public Response<PagoDto> getByKey(
-    @PathVariable GetPagoByKeyQuery request
-  ) throws Exception {
+      @PathVariable GetPagoByKeyQuery request) throws Exception {
     return _mediator.send(request);
   }
 
   @PostMapping("/registro")
-  public Response<Pago> register(
-    @RequestBody CrearPagoCommand pago
-  ) throws Exception {
-    return _mediator.send(pago);
+  public String register(
+      @RequestBody CrearPagoCommand pago) throws Exception {
+    return (String) _mediator.send(pago).data;
   }
 
   @PutMapping("/{key}")
   public Response<Pago> edit(
-    @RequestBody Pago pago,
-    @PathVariable EditarPagoCommand request
-  ) throws Exception {
+      @RequestBody Pago pago,
+      @PathVariable EditarPagoCommand request) throws Exception {
     request.pago.descripcion = pago.descripcion;
     return _mediator.send(request);
   }
 
   @DeleteMapping("/{key}")
   public Response<Pago> delete(
-    @PathVariable EliminarPagoCommand request
-  ) throws Exception {
+      @PathVariable EliminarPagoCommand request) throws Exception {
     return _mediator.send(request);
   }
 }

@@ -3,7 +3,7 @@ package UseCases.Command.Facturas.Editar;
 import Factories.IPagoFactory;
 import Factories.IFacturaFactory;
 import Model.Facturas.Factura;
-import Model.Pagos.Pago;
+import Model.Ventas.Pago;
 import Repositories.IPagoRepository;
 import Repositories.IFacturaRepository;
 import Repositories.IUnitOfWork;

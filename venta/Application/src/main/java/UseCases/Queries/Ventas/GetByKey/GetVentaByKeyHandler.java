@@ -3,7 +3,7 @@ package UseCases.Queries.Ventas.GetByKey;
 import Dto.PagoDto;
 import Dto.AsientoDto;
 import Dto.VentaDto;
-import Model.Pagos.Pago;
+import Model.Ventas.Pago;
 import Model.Ventas.Venta;
 import Repositories.IPagoRepository;
 import Repositories.IVentaRepository;

@@ -1,12 +1,12 @@
 package UseCases.Command.Pagos.Editar;
 
 import Factories.IPagoFactory;
-import Model.Pagos.Pago;
 import Repositories.IPagoRepository;
 import Repositories.IUnitOfWork;
 import Fourteam.http.Exception.HttpException;
 import Fourteam.http.HttpStatus;
 import Fourteam.mediator.RequestHandler;
+import Model.Ventas.Pago;
 
 public class EditarPagoHandler
   implements RequestHandler<EditarPagoCommand, Pago> {
