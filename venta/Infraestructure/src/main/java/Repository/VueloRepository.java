@@ -2,6 +2,7 @@ package Repository;
 
 import Context.IWriteDbContext;
 import Model.Ventas.Pago;
+import Model.Vuelo.Tarifa;
 import Model.Vuelo.Vuelo;
 import Repositories.IPagoRepository;
 import Repositories.IVueloRepository;
