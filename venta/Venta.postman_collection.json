@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "0efe4c4a-7d1b-4a6d-8a91-7a5fd36d10ce",
+		"name": "Venta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pago",
+			"item": [
+				{
+					"name": "registro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", ()=>{",
+									"    pm.response.to.have.status(200);",
+									"    var data = pm.response.json().data.key;",
+									"    pm.environment.set(\"key_aeronave\",data);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descripcion\":\"Venta de pasaje\",\n    \"keyVenta\": \"03793f4c-70ce-4fb4-b7b5-f0d1b3de2eb0\",\n    \"monto\": 1.00,\n    \"tipo\":\"QR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pago/registro",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pago",
+								"registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "venta",
+			"item": [
+				{
+					"name": "registro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", ()=>{",
+									"    pm.response.to.have.status(200);",
+									"    var data = pm.response.json().data.key;",
+									"    pm.environment.set(\"key_aeronave\",data);",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"PEDRO\",\n    \"apellido\":\"PERES PICAPIEDRA\",\n    \"dni\":3232323,\n    \"keyVuelo\":\"96b1c99d-c62c-44ed-9351-b2ed6d895139\",\n    \"keyTarifa\":\"74b770a2-e8f1-4329-96eb-ad3cfce83ed2\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/venta/registro",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venta",
+								"registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matricula\":\"ABC_TEST2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/venta/{{key_aeronave}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venta",
+								"{{key_aeronave}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByKey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/venta/{{key_aeronave}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venta",
+								"{{key_aeronave}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/venta/{{key_venta}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venta",
+								"{{key_venta}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\",()=>{",
+									"    pm.response.to.have.status(200)",
+									"})",
+									"pm.test(\"Response not empty\",()=>{",
+									"    pm.expect(pm.response.text()).not.empty;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/venta/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venta",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vuelo",
+			"item": [
+				{
+					"name": "AddTarifa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cantidad\":10,\n    \"descripcion\":\"Clase ejecutiva\",\n    \"precio\":199.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vuelo/AddTarifa/96b1c99d-c62c-44ed-9351-b2ed6d895139",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vuelo",
+								"AddTarifa",
+								"96b1c99d-c62c-44ed-9351-b2ed6d895139"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
