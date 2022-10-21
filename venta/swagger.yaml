@@ -144,17 +144,6 @@ paths:
       responses:
         '200': {description: Response 200}
       tags: [/pago]
-  /venta/registro:
-    post:
-      summary: /venta register
-      requestBody:
-        content:
-          application/json:
-            schema: {type: object}
-      operationId: /venta_register
-      responses:
-        '200': {description: Response 200}
-      tags: [/venta]
   /venta/{key}:
     get:
       summary: /venta getByKey
@@ -192,6 +181,17 @@ paths:
         in: path
         name: key
         required: true
+      tags: [/venta]
+  /venta/registro:
+    post:
+      summary: /venta register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /venta_register
+      responses:
+        '200': {description: Response 200}
       tags: [/venta]
 info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
 tags:
