@@ -21,6 +21,10 @@ public class Venta extends AggregateRoot<UUID> {
   public double monto;
   public List<Pago> pagos;
 
+
+
+
+
   public Venta() {
   }
 
@@ -68,6 +72,14 @@ public class Venta extends AggregateRoot<UUID> {
 
   public void setKeyTarifa(UUID keyTarifa) {
     this.keyTarifa = keyTarifa;
+  }
+
+  public List<Pago> getPagos() {
+    return this.pagos;
+  }
+
+  public void setPagos(List<Pago> pagos) {
+    this.pagos = pagos;
   }
 
   public void eventCreado() {
