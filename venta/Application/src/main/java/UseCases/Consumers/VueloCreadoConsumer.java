@@ -27,8 +27,9 @@ public class VueloCreadoConsumer extends IConsumer<IntegrationEvents.VueloCreado
         objeto.getKey(),
         objeto.getOrigen(),
         objeto.getDestino(),
-        objeto.getFechaArribe(),
-        objeto.getFechaSalida());
+        objeto.getFechaSalida(),
+        objeto.getFechaArribe()
+        );
 
     for (var item : objeto.listaAsientos) {
       vuelo.AgregarAsientos(item.getKey(), item.getNumero(), item.getDisponibilidad(), item.getPrecio());
