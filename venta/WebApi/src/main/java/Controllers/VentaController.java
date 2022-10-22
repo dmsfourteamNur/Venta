@@ -36,15 +36,15 @@ public class VentaController {
   }
 
   @GetMapping("/{key}")
-  public Response<VentaDto> getByKey(
+  public VentaDto getByKey(
       @PathVariable GetVentaByKeyQuery request) throws Exception {
-    return _mediator.send(request);
+    return (VentaDto) _mediator.send(request).data;
   }
 
   @PostMapping("/registro")
-  public UUID register(
+  public String register(
       @RequestBody CrearVentaCommand venta) throws Exception {
-    return (UUID) _mediator.send(venta).data;
+    return _mediator.send(venta).data.toString();
   }
 
   @PutMapping("/{key}")

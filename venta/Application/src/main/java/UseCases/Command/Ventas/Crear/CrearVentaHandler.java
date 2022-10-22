@@ -45,6 +45,12 @@ public class CrearVentaHandler
 
     // TODO: validar que no pueda comprar la misma persona en un vuelo.
 
+    Venta venta_obj = _ventaRepository.GetAll().stream()
+        .filter(o -> (o.dni.equals(request.data.dni) && o.keyVuelo.equals(vuelo.key))).findAny().orElse(null);
+
+    if (venta_obj != null)
+      throw new HttpException(HttpStatus.BAD_GATEWAY, "El dni ya cuanta con un ticket en este vuelo");
+
     Venta venta = _ventaFactory.Create(request.data.nombre, request.data.apellido, request.data.dni,
         request.data.keyVuelo, request.data.keyTarifa, tarifa.getPrecio());
     venta.eventCreado();
