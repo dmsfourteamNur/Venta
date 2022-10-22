@@ -11,14 +11,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.anyInt;
 
-public class ReciboDto_Test {
+public class FacturaDto_Test {
 
   @Test
   public void CheckPropertiesValid() {
     UUID key = UUID.randomUUID();
     String nombre = "Ejecutiva";
-    ReciboDto recibo = new ReciboDto(key, anyString(), anyString(), 523.50 , anyString());
-    ReciboDto recibo2 = new ReciboDto();
+    FacturaDto factura = new FacturaDto(key, anyString(), anyString(), 523.50 , anyString());
+    FacturaDto factura2 = new FacturaDto();
 
 
   }
