@@ -11,12 +11,15 @@ public class PagoDto_Test {
     UUID key = UUID.randomUUID();
     String nombre = "Ejecutiva";
     PagoDto pago = new PagoDto();
+    PagoDto pago2 = new PagoDto(nombre, key, "", 150.0);
 
-    Assert.assertEquals(null, pago.key);
-    Assert.assertEquals(null, pago.descripcion);
+    Assert.assertEquals(null, pago.getKey());
+    Assert.assertEquals(null, pago.getDescripcion());
+    Assert.assertEquals(null, pago.getKeyVenta());
 
-    pago.key = key;
-    pago.descripcion = nombre;
+    pago.setKey(key);
+    pago.setDescripcion(nombre);
+    pago.setKeyVenta(key);
 
     Assert.assertEquals(key, pago.key);
     Assert.assertEquals(nombre, pago.descripcion);
